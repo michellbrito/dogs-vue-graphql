@@ -1,19 +1,19 @@
 <template>
   <div id="app">
+    <h1 class="display-1 text-center">🦴 Dogs 🐕</h1>
     <Cards />
   </div>
 </template>
 
 <script>
-import Cards from './components/Cards.vue'
+import Cards from "./components/Cards.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    // HelloWorld, 
-    Cards
-  }
-}
+    Cards,
+  },
+};
 </script>
 
 <style>
@@ -52,5 +52,4 @@ img {
   margin-top: 85px;
   text-align: center;
 }
-
 </style>
