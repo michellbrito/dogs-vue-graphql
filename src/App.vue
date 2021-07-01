@@ -52,4 +52,8 @@ img {
   margin-top: 85px;
   text-align: center;
 }
+
+button {
+  margin: 2%;
+}
 </style>

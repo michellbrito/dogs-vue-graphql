@@ -1,10 +1,21 @@
 <template>
   <div>
+    <div class="text-center">
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        @click="filterData"
+      >
+        Big Dogs
+      </button>
+    
+    </div>
+
     <div class="container text-center">
       <div class="row">
         <div
           class="col-sm-12 col-md-6 col-lg-4 img"
-          v-for="pet in pets"
+          v-for="pet in getPets"
           :key="pet.name"
         >
           <img :src="pet.img" />
@@ -20,27 +31,23 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
   name: "Cards",
-  data: function() {
-    return {
-      pets: []
-    };
-  },
-  methods: {
-    async fetchData(){
-    console.log(window.location)
-    const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img}}`;
-    console.log(fullUrl)
-      const response = await axios.get(fullUrl);
-      this.pets = response.data.data.pets;
-      console.log(response)
+  
+computed: {
+    getPets() {
+    return this.$store.state.pets
     }
   },
-  mounted () {
-   this.fetchData();
+  mounted() {
+    this.$store.dispatch("getPosts");
+  },
+  methods: {
+    filterData(){
+       this.$store.dispatch("getLargeDogs");
+    }
   }
+
 };
 </script>
