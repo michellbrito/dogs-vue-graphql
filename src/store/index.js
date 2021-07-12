@@ -19,8 +19,8 @@ export const store = new Vuex.Store({
   },
   actions: {
     getPosts({ commit }) {
-        // const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img}}`;
-        const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img}}`
+        const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img}}`;
+        // const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img}}`
       axios
         .get(fullUrl)
         .then((response) => {
@@ -28,8 +28,8 @@ export const store = new Vuex.Store({
         });
     },
     getLargeDogs({ commit }) {
-        // const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img,size}}`;
-        const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img,size}}`
+        const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img,size}}`;
+        // const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img,size}}`
         axios
           .get(fullUrl)
           .then((response) => {
@@ -39,8 +39,8 @@ export const store = new Vuex.Store({
           });
       },
       getOwners({ commit }) {
-        // const fullUrl = `${window.location.href}graphql?query={owners{first_name,last_name}}`;
-        const fullUrl = `http://localhost:3000/graphql?query={owners{first_name,last_name,img}}`
+        const fullUrl = `${window.location.href}graphql?query={owners{first_name,last_name,img}}`;
+        // const fullUrl = `http://localhost:3000/graphql?query={owners{first_name,last_name,img}}`
         axios
           .get(fullUrl)
           .then((response) => {
