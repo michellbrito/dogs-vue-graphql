@@ -17,6 +17,7 @@ var schema = buildSchema(`
     id: Int
     first_name: String
     last_name: String
+    img: String
     pets: [Pet!]
   }
   type Pet {
@@ -39,16 +40,19 @@ var owners = [
     id: 1,
     first_name: "Alexandra",
     last_name: "Becci",
+    img: "https://randomuser.me/api/portraits/women/2.jpg"
   },
   {
     id: 2,
     first_name: "Charles",
     last_name: "Victoria",
+    img: "https://randomuser.me/api/portraits/men/43.jpg"
   },
   {
     id: 3,
     first_name: "Marie",
     last_name: "Loreta",
+    img: "https://randomuser.me/api/portraits/women/30.jpg"
   },
 ];
 
