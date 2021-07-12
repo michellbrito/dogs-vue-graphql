@@ -7,7 +7,7 @@ import axios from "axios";
 export const store = new Vuex.Store({
   state: {
     pets: [],
-    owners: []
+    owners: [],
   },
   mutations: {
     SET_PETS(state, pets) {
@@ -19,48 +19,32 @@ export const store = new Vuex.Store({
   },
   actions: {
     getPosts({ commit }) {
-      // console.log(window.location.href);
       const prefix = window.location.href.split("#")[0];
-        const fullUrl = `${prefix}graphql?query={pets{name,breed,img}}`;
-     
-        // const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img}}`
-        console.log(fullUrl)
-      axios
-        .get(fullUrl)
-        .then((response) => {
-          commit("SET_PETS", response.data.data.pets);
-        });
+      const fullUrl = `${prefix}graphql?query={pets{name,breed,img}}`;
+      axios.get(fullUrl).then((response) => {
+        commit("SET_PETS", response.data.data.pets);
+      });
     },
     getLargeDogs({ commit }) {
       const prefix = window.location.href.split("#")[0];
-      // console.log(window.location.href);
-        const fullUrl = `${prefix}graphql?query={pets{name,breed,img,size}}`;
-        console.log(fullUrl)
-
-
-        // const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img,size}}`
-        //    console.log(fullUrl)
-        axios
-          .get(fullUrl)
-          .then((response) => {
-              const data = response.data.data.pets.filter(dog => dog.size === "Large");
-              console.log(data)
-            commit("SET_PETS", data);
-          });
-      },
-      getOwners({ commit }) {
-        const prefix = window.location.href.split("#")[0];
-
-        const fullUrl = `${prefix}graphql?query={owners{first_name,last_name,img}}`;
-        // const fullUrl = `http://localhost:3000/graphql?query={owners{first_name,last_name,img}}`
-        axios
-          .get(fullUrl)
-          .then((response) => {
-              const data = response.data.data.owners;
-              console.log(data)
-            commit("SET_OWNERS", data);
-          });
-      },
+      const fullUrl = `${prefix}graphql?query={pets{name,breed,img,size}}`;
+      axios.get(fullUrl).then((response) => {
+        const data = response.data.data.pets.filter(
+          (dog) => dog.size === "Large"
+        );
+        console.log(data);
+        commit("SET_PETS", data);
+      });
+    },
+    getOwners({ commit }) {
+      const prefix = window.location.href.split("#")[0];
+      const fullUrl = `${prefix}graphql?query={owners{first_name,last_name,img}}`;
+      axios.get(fullUrl).then((response) => {
+        const data = response.data.data.owners;
+        console.log(data);
+        commit("SET_OWNERS", data);
+      });
+    },
   },
   getters: {},
 });

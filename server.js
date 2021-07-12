@@ -40,19 +40,19 @@ var owners = [
     id: 1,
     first_name: "Alexandra",
     last_name: "Becci",
-    img: "https://randomuser.me/api/portraits/women/2.jpg"
+    img: "https://randomuser.me/api/portraits/women/2.jpg",
   },
   {
     id: 2,
     first_name: "Charles",
     last_name: "Victoria",
-    img: "https://randomuser.me/api/portraits/men/43.jpg"
+    img: "https://randomuser.me/api/portraits/men/43.jpg",
   },
   {
     id: 3,
     first_name: "Marie",
     last_name: "Loreta",
-    img: "https://randomuser.me/api/portraits/women/30.jpg"
+    img: "https://randomuser.me/api/portraits/women/30.jpg",
   },
 ];
 
@@ -190,19 +190,6 @@ app.use(
     graphiql: true, // Enable GraphiQL when server endpoint is accessed in browser
   })
 );
-
-// get route -> index
-app.get("/", (req, res) => {
-  const fullUrl = `${req.protocol}://${req.get("host")}${
-    req.originalUrl
-  }graphql?query={pets{name,breed,img}}`;
-  console.log(fullUrl);
-  axios.get(fullUrl).then(function(response) {
-    // handle success
-    const data = response.data.data.pets;
-    res.json(data);
-  });
-});
 
 app.listen(PORT, function() {
   console.log(`Example app listening on port ${PORT}!`);
