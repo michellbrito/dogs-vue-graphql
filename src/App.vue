@@ -1,18 +1,14 @@
 <template>
   <div id="app">
     <h1 class="display-1 text-center">🦴 Dogs 🐕</h1>
-    <Cards />
+    <router-view />
   </div>
 </template>
 
 <script>
-import Cards from "./components/Cards.vue";
-
 export default {
   name: "App",
-  components: {
-    Cards,
-  },
+  components: {},
 };
 </script>
 
