@@ -19,6 +19,7 @@ export const store = new Vuex.Store({
   },
   actions: {
     getPosts({ commit }) {
+      console.log(window.location.href);
         const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img}}`;
         // const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img}}`
       axios
@@ -28,6 +29,7 @@ export const store = new Vuex.Store({
         });
     },
     getLargeDogs({ commit }) {
+      console.log(window.location.href);
         const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img,size}}`;
         // const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img,size}}`
         axios
@@ -39,6 +41,7 @@ export const store = new Vuex.Store({
           });
       },
       getOwners({ commit }) {
+        console.log(window.location.href);
         const fullUrl = `${window.location.href}graphql?query={owners{first_name,last_name,img}}`;
         // const fullUrl = `http://localhost:3000/graphql?query={owners{first_name,last_name,img}}`
         axios
