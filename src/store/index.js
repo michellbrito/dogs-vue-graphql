@@ -21,6 +21,7 @@ export const store = new Vuex.Store({
     getPosts({ commit }) {
       console.log(window.location.href);
         const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img}}`;
+        console.log(fullUrl)
         // const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img}}`
       axios
         .get(fullUrl)
@@ -31,6 +32,7 @@ export const store = new Vuex.Store({
     getLargeDogs({ commit }) {
       console.log(window.location.href);
         const fullUrl = `${window.location.href}graphql?query={pets{name,breed,img,size}}`;
+        console.log(fullUrl)
         // const fullUrl = `http://localhost:3000/graphql?query={pets{name,breed,img,size}}`
         axios
           .get(fullUrl)
