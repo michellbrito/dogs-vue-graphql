@@ -1,14 +1,9 @@
 <template>
   <div>
     <div class="text-center">
-      <button
-        type="button"
-        class="btn btn-outline-dark"
-        @click="filterData"
-      >
+      <button type="button" class="btn btn-outline-dark" @click="filterData">
         Big Dogs
       </button>
-    
     </div>
 
     <div class="container text-center">
@@ -31,23 +26,21 @@
 </template>
 
 <script>
-
 export default {
   name: "Cards",
-  
-computed: {
+
+  computed: {
     getPets() {
-    return this.$store.state.pets
-    }
+      return this.$store.state.pets;
+    },
   },
   mounted() {
     this.$store.dispatch("getPosts");
   },
   methods: {
-    filterData(){
-       this.$store.dispatch("getLargeDogs");
-    }
-  }
-
+    filterData() {
+      this.$store.dispatch("getLargeDogs");
+    },
+  },
 };
 </script>
